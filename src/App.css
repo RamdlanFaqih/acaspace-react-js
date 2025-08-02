@@ -1,4 +1,4 @@
-/* Gaya Umum */
+/* Style Keseluruhan */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -238,7 +238,7 @@ body {
 }
 
 
-/* Container utama yang mengisi seluruh halaman dan menengahkan form */
+/* Khusus Login*/
 .login-page {
     display: flex;
     justify-content: center;

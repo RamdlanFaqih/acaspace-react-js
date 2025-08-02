@@ -2,6 +2,7 @@ import Card from "../components/Card"
 import Navbar from "../components/Navbar"
 import SamsungImg1 from '../assets/samsungs22.png'
 import { useState } from 'react'
+import { Link } from "react-router";
 
 interface DataProductTypes {
   discount: string,
@@ -48,7 +49,7 @@ function App() {
   // handle plus
   const handleAdd = () => {
     if (number < 10) {
-      setNumber(value => value + 1 )
+      setNumber(value => value + 1)
     } else {
       alert("gak bisa lebih dari 10 bro")
     }
@@ -57,32 +58,39 @@ function App() {
   // handle minus
   const handleMinus = () => {
     if (number > 0) {
-      setNumber(value => value - 1 )
+      setNumber(value => value - 1)
     }
   }
 
   return (
     <>
+      <div style={{height: '100vh'}}>
       <Navbar />
-      <div style={{display: "flex", width: "100vh", alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
-      <div>{number}</div>
-      <button onClick={handleAdd}>Plus</button>
-      <button onClick={handleMinus}>Minus</button>
+        <div style={{ display: "flex", width: "100vh", alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
+          <div>{number}</div>
+          <button onClick={handleAdd}>Plus</button>
+          <button onClick={handleMinus}>Minus</button>
+        </div>
+        <div className="product-grid">
+          {dataProduct.map((value, index) => {
+            return (
+              <Link to={"/detail"}>
+              <Card
+                key={index}
+                currentPrice={value.currentPrice}
+                discount={value.discount}
+                image={value.image}
+                originalPrice={value.originalPrice}
+                productName={value.productName}
+                savings={value.savings}
+                />
+                </Link>
+            )
+          })}
+        </div>
       </div>
-      <div className="product-grid">
-        {dataProduct.map((value, index) => {
-          return (
-            <Card
-              key={index}
-              currentPrice={value.currentPrice}
-              discount={value.discount}
-              image={value.image}
-              originalPrice={value.originalPrice}
-              productName={value.productName}
-              savings={value.savings}
-            />
-          )
-        })}
+      <div id="page-detail" style={{height: '100vh'}}>
+        <p>langsung dari sini</p>
       </div>
     </>
   )

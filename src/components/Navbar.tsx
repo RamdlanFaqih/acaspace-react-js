@@ -1,4 +1,15 @@
+import { Link, useNavigate } from "react-router"
+
 const Navbar = () => {
+    const navigate = useNavigate()
+    const token = localStorage.getItem('token')
+    const isLoggedIn = !!token
+    
+    const handleLogout = () => {
+        localStorage.removeItem('token')
+        alert("logout berhasil")
+        navigate("/login")
+    }
     return (
         <header className="navbar">
             <div className="navbar-left">
@@ -17,14 +28,18 @@ const Navbar = () => {
                 </div>
             </div>
             <div className="navbar-right">
-                <a href="#" className="nav-link">
-                    <i className="fa-regular fa-user"></i>
-                    <span>Sign Up/Sign In</span>
-                </a>
-                <a href="#" className="nav-link">
-                    <i className="fa-solid fa-cart-shopping"></i>
-                    <span>Cart</span>
-                </a>
+                {isLoggedIn ? (
+                    <button onClick={handleLogout} className="nav-link">
+                        <i className="fa-regular fa-user"></i>
+                        <span>Logout</span>
+                    </button>
+                ) : (
+                    <Link to="/login" className="nav-link">
+                        <i className="fa-regular fa-user"></i>
+                        <span>Sign Up/Sign In</span>
+                    </Link>
+                )}
+
             </div>
         </header>
     )

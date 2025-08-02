@@ -4,6 +4,7 @@ const Detail = () => {
     return (
         <>
             <Navbar />
+            <p>Ini Halaman Detail</p>
         </>
     )
 }
