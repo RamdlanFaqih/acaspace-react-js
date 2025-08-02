@@ -64,7 +64,7 @@ function App() {
 
   return (
     <>
-      <div style={{height: '100vh'}}>
+   
       <Navbar />
         <div style={{ display: "flex", width: "100vh", alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
           <div>{number}</div>
@@ -88,10 +88,6 @@ function App() {
             )
           })}
         </div>
-      </div>
-      <div id="page-detail" style={{height: '100vh'}}>
-        <p>langsung dari sini</p>
-      </div>
     </>
   )
 }
