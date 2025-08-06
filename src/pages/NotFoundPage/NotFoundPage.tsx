@@ -1,6 +1,6 @@
 const NotFoundPage = () => {
   return (
-    <div>Halaman Tidak Ditemukan, atau URL nya salah</div>
+    <div>404 Halaman Tidak Ditemukan, atau URL nya salah</div>
   )
 }
 
